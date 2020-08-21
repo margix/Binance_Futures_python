@@ -110,6 +110,14 @@ class RequestClient(object):
         Mark Price and Funding Rate
         """
         return call_sync(self.request_impl.get_mark_price(symbol))
+    
+    def get_symbol_price_ticker(self, symbol: 'str' = None) -> any:
+        """
+        Symbol Price Ticker (MARKET_DATA)
+        GET /fapi/v1/ticker/price
+        Latest price for a symbol or symbols.
+        """
+        return call_sync(self.request_impl.get_symbol_price_ticker(symbol))
             
     def get_funding_rate(self, symbol: 'str', startTime: 'long' = None, endTime: 'str' = None, limit: 'int' = None) -> any:
         """
